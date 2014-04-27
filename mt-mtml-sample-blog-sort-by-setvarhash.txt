@@ -50,13 +50,18 @@
 
 <mt:WebsiteHasblog>
 <mt:Blogs include_blogs="children">
+<!-- ↓BlogNameから「Gourmet Vox 」を削除する -->
 <mt:SetVarBlock name="prefname"><mt:BlogName replace="Gourmet Vox ",""></mt:SetVarBlock>
+<!-- ↓「pref」に「prefhash{北海道}」などをセット -->
 <mt:SetVarBlock name="pref">prefhash{<mt:Var name="prefname">}</mt:SetVarBlock>
+<!-- ↓「preflist{01}」などを取得出来るようにする。zero_padを設定するのは数字の桁数を揃えるため -->
 <mt:SetVarblock name="prefno">preflist{<mt:Var name="$pref" zero_pad="2">}</mt:SetVarBlock>
+<!-- ↓SetVarBlockのnameに「preflist{01}」などがセットされる -->
 <mt:SetVarBlock name="$prefno"><li><a href="<$mt:BlogURL$>" class="link-type-btn"><mt:BlogName replace="Gourmet Vox ",""></a></li></mt:SetVarBlock>
 </mt:Blogs>
 </mt:WebsiteHasBlog>
 
+<!-- ↓preflistを「Loop」で取得して、「{01}」に設定されたkeyでソートする -->
 <mt:loop name="preflist" sort_by="key">
 <mt:if name="__first__">
 <div class="block link-type-btn">
@@ -64,7 +69,10 @@
     <div class="widget-content">
         <ul class="blogs">
 </mt:if>
-<mt:Var name="__value__"> <mt:Ignore>ここで<li>要素を読み込んでます。</mt:Ignore>
+
+<!-- ↓ここで<li>要素を読み込んでます。 -->
+<mt:Var name="__value__">
+
 <mt:If name="__last__">
         </ul>
     </div>
