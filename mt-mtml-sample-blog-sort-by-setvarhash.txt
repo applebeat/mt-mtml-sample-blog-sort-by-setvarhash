@@ -64,7 +64,7 @@
     <div class="widget-content">
         <ul class="blogs">
 </mt:if>
-<mt:Var name="__value__">
+<mt:Var name="__value__"> <mt:Ignore>ここで<li>要素を読み込んでます。</mt:Ignore>
 <mt:If name="__last__">
         </ul>
     </div>
