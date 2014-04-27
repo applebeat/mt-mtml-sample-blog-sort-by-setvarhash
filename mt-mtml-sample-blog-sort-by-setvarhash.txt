@@ -1,0 +1,73 @@
+<mt:SetHashVar name="prefhash">
+<$mt:SetVar name="北海道" value="1"$>
+<$mt:SetVar name="青森" value="2"$>
+<$mt:SetVar name="岩手" value="3"$>
+<$mt:SetVar name="宮城" value="4"$>
+<$mt:SetVar name="秋田" value="5"$>
+<$mt:SetVar name="山形" value="6"$>
+<$mt:SetVar name="福島" value="7"$>
+<$mt:SetVar name="茨城" value="8"$>
+<$mt:SetVar name="栃木" value="9"$>
+<$mt:SetVar name="群馬" value="10"$>
+<$mt:SetVar name="埼玉" value="11"$>
+<$mt:SetVar name="千葉" value="12"$>
+<$mt:SetVar name="東京" value="13"$>
+<$mt:SetVar name="神奈川" value="14"$>
+<$mt:SetVar name="新潟" value="15"$>
+<$mt:SetVar name="富山" value="16"$>
+<$mt:SetVar name="石川" value="17"$>
+<$mt:SetVar name="福井" value="18"$>
+<$mt:SetVar name="山梨" value="19"$>
+<$mt:SetVar name="長野" value="20"$>
+<$mt:SetVar name="岐阜" value="21"$>
+<$mt:SetVar name="静岡" value="22"$>
+<$mt:SetVar name="愛知" value="23"$>
+<$mt:SetVar name="三重" value="24"$>
+<$mt:SetVar name="滋賀" value="25"$>
+<$mt:SetVar name="京都" value="26"$>
+<$mt:SetVar name="大阪" value="27"$>
+<$mt:SetVar name="兵庫" value="28"$>
+<$mt:SetVar name="奈良" value="29"$>
+<$mt:SetVar name="和歌山" value="30"$>
+<$mt:SetVar name="鳥取" value="31"$>
+<$mt:SetVar name="島根" value="32"$>
+<$mt:SetVar name="岡山" value="33"$>
+<$mt:SetVar name="広島" value="34"$>
+<$mt:SetVar name="山口" value="35"$>
+<$mt:SetVar name="徳島" value="36"$>
+<$mt:SetVar name="香川" value="37"$>
+<$mt:SetVar name="愛媛" value="38"$>
+<$mt:SetVar name="高知" value="39"$>
+<$mt:SetVar name="福岡" value="40"$>
+<$mt:SetVar name="佐賀" value="41"$>
+<$mt:SetVar name="長崎" value="42"$>
+<$mt:SetVar name="熊本" value="43"$>
+<$mt:SetVar name="大分" value="44"$>
+<$mt:SetVar name="宮崎" value="45"$>
+<$mt:SetVar name="鹿児島" value="46"$>
+<$mt:SetVar name="沖縄" value="47"$>
+</mt:SetHashVar>
+
+<mt:WebsiteHasblog>
+<mt:Blogs include_blogs="children">
+<mt:SetVarBlock name="prefname"><mt:BlogName replace="Gourmet Vox ",""></mt:SetVarBlock>
+<mt:SetVarBlock name="pref">prefhash{<mt:Var name="prefname">}</mt:SetVarBlock>
+<mt:SetVarblock name="prefno">preflist{<mt:Var name="$pref" zero_pad="2">}</mt:SetVarBlock>
+<mt:SetVarBlock name="$prefno"><li><a href="<$mt:BlogURL$>" class="link-type-btn"><mt:BlogName replace="Gourmet Vox ",""></a></li></mt:SetVarBlock>
+</mt:Blogs>
+</mt:WebsiteHasBlog>
+
+<mt:loop name="preflist" sort_by="key">
+<mt:if name="__first__">
+<div class="block link-type-btn">
+    <h3 class="widget-header">都道府県別</h3>
+    <div class="widget-content">
+        <ul class="blogs">
+</mt:if>
+<mt:Var name="__value__">
+<mt:If name="__last__">
+        </ul>
+    </div>
+</div>
+</mt:if>
+</mt:loop>
